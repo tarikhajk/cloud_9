@@ -1,0 +1,30 @@
+<%include ./partials/header%>
+
+<div class="ui main text container segment">
+    <div class="ui huge header">Edit: <%= blog.title %></div>
+    <!--Change the form 'action' and 'method' after copy pasting from new.ejs-->
+    <!--...Oh wait! for some reason till this day we cant do 'PUT' requests with forms,-->
+    <!--so instead, we use the 'methode-override' package which gives us a workaround, which-->
+    <!--is why we keep it as a post request and add the '?_method=PUT' at the end of our URL-->
+    <form id="make-inline"action="/blogs/<%= blog._id %>?_method=PUT" class="ui form" method="POST">
+        <div class="field">
+            <label>Title</label>
+            <input type="text" value="<%= blog.title %>" name="blog[title]">
+        </div>
+        <div class="field">
+            <label>Image</label>
+            <input type="text" value="<%= blog.image %>" name="blog[image]">
+        </div>
+        <div class="field">
+            <label>Content</label>
+            <textarea name="blog[body]"><%= blog.body %></textarea>
+        </div>
+        <input class="ui green big basic button" type="submit" value="Update">
+        <button class="ui black big basic button" href="/blogs/<%= blog._id %>">Cancel</button>
+    </form>
+    <form id="make-inline" action="/blogs/<%= blog._id %>?_method=DELETE" class="ui form" method="POST">
+        <input class="ui red basic big button" type="submit" value="Delete">
+    </form>
+</div>
+
+<%include ./partials/footer%>

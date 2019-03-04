@@ -1,0 +1,24 @@
+<%include ./partials/header%>
+
+<div class="ui main text container segment">
+    <div class="ui huge header"><%= blog.title %></div>
+    <div class="ui top attached">
+        <div class="item">
+            <img class="ui centered rounded image" src="<%= blog.image %>">
+            <div class="content">
+                <span><%= blog.created.toDateString() %></span>
+            </div>
+            <div class="description">
+                <!--Having the dash instead of the equal sign lets a user enter in html-->
+                <!--You can use "express santitizer" to make sure users dont input script tags that could harm your website-->
+                <p> <%- blog.body %> </p>                
+            </div>
+        </div>
+    <a class="ui blue basic button" href="/blogs/<%= blog._id %>/edit">Edit</a>
+    </div>
+    
+
+
+</div>
+
+<%include ./partials/footer%>
