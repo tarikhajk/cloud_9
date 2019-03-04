@@ -1,0 +1,12 @@
+body {
+    margin-top: 5em;
+}
+
+i .icon {
+    font-size: 1em;
+    /*its fine the way it is*/
+}
+
+#make-inline {
+    display: inline;
+}
